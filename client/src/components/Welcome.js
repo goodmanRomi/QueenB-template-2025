@@ -16,7 +16,7 @@ import {
   ArrowForward as ArrowForwardIcon
 } from '@mui/icons-material';
 
-const Welcome = ({ onRoleSelect }) => {
+const Welcome = ({ onGoToSignUp }) => {
   const theme = useTheme();
   const [selectedRole, setSelectedRole] = useState('');
   const [isSelecting, setIsSelecting] = useState(false);
@@ -24,9 +24,9 @@ const Welcome = ({ onRoleSelect }) => {
   const handleRoleSelect = (role) => {
     setSelectedRole(role);
     setIsSelecting(true);
-    // You can add a delay here for better UX
+    // Navigate directly to sign up for the selected role
     setTimeout(() => {
-      onRoleSelect(role);
+      onGoToSignUp(role);
     }, 800);
   };
 
@@ -34,7 +34,7 @@ const Welcome = ({ onRoleSelect }) => {
     <Box
       sx={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #FFE5E5 0%, #FFB6C1 50%, #FF69B4 100%)',
+        background: 'linear-gradient(135deg, #FCE8D6 0%, #FFC0CB 50%, #FF99AA 100%)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -60,22 +60,22 @@ const Welcome = ({ onRoleSelect }) => {
               component="h1" 
               gutterBottom
               sx={{
-                fontWeight: 'bold',
-                background: 'linear-gradient(45deg, #FF69B4, #FF1493)',
+                fontWeight: 300,
+                background: 'linear-gradient(45deg, #FF99AA, #8B6B7B)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 mb: 1
               }}
             >
-              👑 QueenB
+               QueenB 👑
             </Typography>
             <Typography 
               variant="h6" 
               color="text.secondary"
               sx={{ 
-                fontWeight: 300,
-                color: '#FF69B4'
+                fontWeight: 400,
+                color: '#8B6B7B'
               }}
             >
               Choose Your Path
@@ -89,7 +89,7 @@ const Welcome = ({ onRoleSelect }) => {
               color="text.secondary" 
               sx={{ mb: 3, color: '#666' }}
             >
-              I want to...
+            
             </Typography>
             
             <FormControl fullWidth sx={{ mb: 3 }}>
@@ -168,7 +168,7 @@ const Welcome = ({ onRoleSelect }) => {
                   textTransform: 'none',
                   boxShadow: '0 4px 15px rgba(255, 105, 180, 0.3)',
                   '&:hover': {
-                    background: 'linear-gradient(45deg, #FF1493, #FF69B4)',
+                    background: 'linear-gradient(45deg,rgb(245, 187, 218), #FF69B4)',
                     boxShadow: '0 6px 20px rgba(255, 105, 180, 0.4)',
                     transform: 'translateY(-2px)',
                   },
@@ -192,8 +192,8 @@ const Welcome = ({ onRoleSelect }) => {
                 p: 2,
                 borderRadius: 2,
                 background: selectedRole === 'mentee' 
-                  ? 'linear-gradient(45deg, #E6F3FF, #B3D9FF)'
-                  : 'linear-gradient(45deg, #FFF0F5, #FFE5E5)',
+                  ? 'linear-gradient(45deg, #E6F3FF,rgb(252, 202, 231))'
+                  : 'linear-gradient(45deg, #FFF0F5,rgb(255, 212, 234))',
                 border: `2px solid ${selectedRole === 'mentee' ? '#4ECDC4' : '#FF69B4'}`
               }}
             >
@@ -205,6 +205,8 @@ const Welcome = ({ onRoleSelect }) => {
               </Typography>
             </Box>
           )}
+
+
         </Paper>
       </Container>
     </Box>
